@@ -12,6 +12,7 @@
 <body class="bg-dark">
     <div id="app">
         <div class="container py-5 d-flex gap-4 align-items-center flex-column">
+            <h1 class="text-white">To-do List</h1>
             <div>
                 <input placeholder="es. pane" @keyup.enter="newIngredient" type="text" name="ingredient" id="ingredient" v-model="ingredient">
                 <button @click="newIngredient" class="btn btn-warning ms-2"><i class="fa-solid fa-plus"></i></button>
