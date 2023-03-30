@@ -14,15 +14,17 @@
         <div class="container py-5 d-flex gap-4 align-items-center flex-column">
             <h1 class="text-white">To-do List</h1>
             <div>
-                <input placeholder="es. pane" @keyup.enter="newIngredient" type="text" name="ingredient" id="ingredient" v-model="ingredient">
+                <input class="rounded-2" placeholder=" es. pane" @keyup.enter="newIngredient" type="text" name="ingredient" id="ingredient" v-model="ingredient">
                 <button @click="newIngredient" class="btn btn-warning ms-2"><i class="fa-solid fa-plus"></i></button>
             </div>
             <h3 v-if="error" class="text-danger">Inserisci un valore valido</h3>
             <ul v-if="listaSpesa.length > 0" class="text-white">
-                <li class="p-2" v-for="(ingredient, index) in listaSpesa" :key="index" :class="listaSpesa[index].completed ? 'alert alert-success itemDone' : ''">
+                <li class="p-2 d-flex justify-content-between gap-5 align-items-center" v-for="(ingredient, index) in listaSpesa" :key="index" :class="listaSpesa[index].completed ? 'alert alert-success itemDone' : ''">
                     <span>{{ingredient.name}}</span>
-                    <button @click="deleteIngredient(index)" class="btn btn-danger mx-2"><i class="fa-solid fa-trash"></i></button>
-                    <button  @click="complete(index)" class="btn btn-success"><i class="fa-solid fa-circle-check"></i></button>
+                    <div class="li-buttons">
+                        <button @click="deleteIngredient(index)" class="btn btn-danger mx-2"><i class="fa-solid fa-trash"></i></button>
+                        <button  @click="complete(index)" class="btn btn-success"><i class="fa-solid fa-circle-check"></i></button>
+                    </div>
                 </li>
             </ul>
             <h3 v-else class="text-warning">La lista della spesa è vuota</h3>
